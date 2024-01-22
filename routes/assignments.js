@@ -6,7 +6,7 @@ function getAssignments(req, res) {
     const limit = parseInt(req.query.limit) || 10;
 
     Assignment.find()
-        .sort({ date: -1 }) // Ajout de la méthode sort ici, en supposant que le champ s'appelle 'date'
+        .sort({ date: -1 })
         .skip((page - 1) * limit)
         .limit(limit)
         .lean()
@@ -22,7 +22,6 @@ function getAssignments(req, res) {
                     return;
                 }
 
-                // Modify the response to include pagination details
                 res.json({
                     total: count,
                     page,
@@ -103,7 +102,7 @@ function updateAssignment(req, res) {
     console.log("UPDATE recu assignment : ");
     console.log(req.body);
 
-    const assignmentId = parseInt(req.body.id); // Assurez-vous que c'est un nombre
+    const assignmentId = parseInt(req.body.id);
 
     if (isNaN(assignmentId)) {
         res.status(400).send({ error: "Invalid ID format" });
