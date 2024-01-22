@@ -6,6 +6,7 @@ function getAssignments(req, res) {
     const limit = parseInt(req.query.limit) || 10;
 
     Assignment.find()
+        .sort({ date: -1 }) // Ajout de la méthode sort ici, en supposant que le champ s'appelle 'date'
         .skip((page - 1) * limit)
         .limit(limit)
         .lean()
@@ -31,6 +32,7 @@ function getAssignments(req, res) {
             });
         });
 }
+
 
 // Récupérer un assignment par son id (GET)
 function getAssignment(req, res){
