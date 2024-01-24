@@ -1,5 +1,6 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
+let { assignmentsDB } = require('../dbConnections');
 
 let AssignmentSchema = Schema({
     _id: Number,
@@ -12,4 +13,4 @@ let AssignmentSchema = Schema({
 }, { versionKey: false });
 
 // C'est à travers ce modèle Mongoose qu'on pourra faire le CRUD
-module.exports = mongoose.model('Assignment', AssignmentSchema);
+module.exports = assignmentsDB.model('Assignment', AssignmentSchema);

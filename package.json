@@ -5,15 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "build": "npm install"
   },
   "author": "Sam Orgill",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^4.1.0",
     "mongoose": "^5.11.2",
     "multer": "1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
